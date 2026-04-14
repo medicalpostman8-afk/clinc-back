@@ -57,7 +57,8 @@ class ReservationController extends Controller
 
         $reservation = Reservation::create([
             ...$request->validated(),
-            'doctor_id' => $doctor->id
+            'doctor_id' => $doctor->id,
+            'status' => 'pending'
         ]);
 
         return response()->json([
