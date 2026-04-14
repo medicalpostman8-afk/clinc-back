@@ -1,0 +1,164 @@
+
+.main-bar-wraper.sticky-no .main-bar {
+    position: static;
+}
+@media only screen and (min-width: 1281px) {
+    [dir="rtl"] .boxed .main-bar {
+        left: 50% !important;
+        right: auto !important;
+    }
+    .boxed .page-wraper {
+        max-width: 1230px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+    }
+    .boxed .footer-fixed .site-footer {
+        left: 50%;
+        width: 1200px;
+        margin: 0 -600px;
+    }
+    .boxed .main-bar {
+        transform: translateX(-50%);
+        left: 50% !important;
+        max-width: 1230px;
+    }
+    .boxed .site-header.style-1 .extra-cell > a, .boxed .site-header.style-1 .extra-cell > div {
+        margin-left: 15px;
+    }
+    .boxed .site-header.style-2.center .header-nav .nav.navbar-left {
+        margin-right: 120px;
+    }
+    .boxed .site-header.style-2.center .header-nav .nav.navbar-right {
+        margin-left: 120px;
+    }
+    .boxed .site-header.style-2.center .extra-nav-left, .boxed .site-header.style-2.center .extra-nav {
+        width: 120px;
+        padding: 0;
+    }
+    .boxed .site-header.style-2.center .extra-cell .login-btn {
+        display: none;
+    }
+    .boxed .site-header.style-2.center .extra-cell > a, .boxed .site-header.style-2.center .extra-cell > div {
+        margin-left: 15px;
+    }
+    .boxed .sidenav-menu {
+        position: absolute;
+    }
+    .boxed .dz-coming-soon .countdown .date span {
+        font-size: 14px;
+    }
+    .boxed .dz-coming-soon .countdown .date .time {
+        font-size: 70px;
+        line-height: 70px;
+    }
+    .boxed .dz-coming-soon .dz-coming-bx {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .boxed .banner-five .swiper-pagination {
+        flex-direction: row;
+        left: 45px;
+        top: auto;
+        bottom: 20px;
+        column-gap: 15px;
+    }
+    .frame {
+        padding: 30px;
+    }
+    .frame .page-wraper {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: scroll;
+        height: auto !important;
+    }
+    .frame .is-fixed .main-bar {
+        left: 0;
+        width: 100%;
+        margin: 0;
+        position: unset;
+    }
+    .frame button.scroltop {
+        right: 50px;
+        bottom: 50px;
+    }
+    .frame .sidenav-menu {
+        position: absolute;
+    }
+}
+@media only screen and (min-width: 1281px) and (max-width: 991px) {
+    .boxed .site-header.style-1 .extra-icon-box {
+        display: none;
+    }
+    .boxed .site-header.style-2 .extra-cell .login-btn i {
+        margin: 0;
+    }
+    .boxed .site-header.style-2 .extra-cell .login-btn {
+        margin-left: 20px;
+        width: 45px;
+        height: 45px;
+        padding: 12px;
+    }
+   .boxed .site-header.style-2 .extra-cell .login-btn span {
+       display: none;
+    }
+    .boxed .header-nav .nav > li > a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .boxed .site-header.style-2 .social-list.style-2 {
+        display: none;
+    }
+    .boxed .silder-one .silder-content {
+        padding: 40px;
+    }
+    .boxed .silder-two .silder-content {
+        width: 60%;
+        padding-right: 80px;
+        padding-left: 40px;
+    }
+    .boxed .silder-two .silder-img {
+        width: calc(40% + 55px);
+    }
+    .boxed .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .boxed .under-construct {
+       padding: 50px;
+    }
+    .boxed .under-construct .dz-content p {
+     font-size: 28px;
+    }
+}
+@media only screen and (min-width: 1281px) and (max-width: 1200px) {
+    .frame .site-header.style-1 .extra-icon-box {
+        display: none;
+    }
+    .frame .dz-coming-bx {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .frame .countdown .date .time {
+        font-size: 70px;
+        line-height: 70px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .frame {
+        padding: 0;
+    }
+    .frame button.scroltop {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+.theme-sharped {
+    transition: 1s;
+}
+.theme-rounded {
+    transition: 1s;
+}

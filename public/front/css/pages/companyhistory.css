@@ -1,0 +1,117 @@
+.time-line:after {
+    border-radius: 2px;
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    width: 4px;
+    display: block;
+    background-color: var(--primary);
+}
+[dir='rtl'] .time-line:after {
+    left: 50%;
+    right: auto;
+}
+.time-line .line-left:after, .time-line .line-right:after {
+    content: "";
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    width: 10%;
+    background-color: var(--primary);
+}
+.time-line .line-left:after {
+    left: 40%;
+}
+[dir='rtl'] .time-line .line-left:after {
+    right: 40%;
+    left: 0;
+}
+.time-line .line-right:after {
+    right: 40%;
+}
+[dir='rtl'] .time-line .line-right:after {
+    left: 40%;
+    right: auto;
+}
+.time-line-start .animated {
+    -webkit-animation: horizontal 5s ease infinite;
+    animation: horizontal 5s ease infinite;
+}
+.time-line-end img {
+    width: 70px;
+    margin-top: -4px;
+    margin-left: -2px;
+    z-index: 1;
+    position: relative;
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: 50% 0%;
+}
+
+@keyframes horizontal{
+    0%{
+        -webkit-transform:translate(0,0);
+        transform:translate(0,0)
+    }
+    6%{
+        -webkit-transform:translate(20px,0);
+        transform:translate(0,20px)
+    }
+    12%{
+        -webkit-transform:translate(0,0);
+        transform:translate(0,0)
+    }
+    18%{
+        -webkit-transform:translate(0,20px);
+        transform:translate(0,20px)
+    }
+    24%{
+        -webkit-transform:translate(0,0);
+        transform:translate(0,0)
+    }
+    30%{
+        -webkit-transform:translate(0,20px);
+        transform:translate(0,20px)
+    }
+    100%,36%{
+        -webkit-transform:translate(0,0);
+        transform:translate(0,0)
+    }
+}
+@keyframes swing {
+    0% { transform: rotate(20deg); }
+    100% { transform: rotate(-20deg); }
+}
+@media only screen and (max-width: 991px) {
+    .time-line:after {
+        right: auto;
+        left: 0;
+    }
+    .time-line .line-left:after {
+        left: 0;
+    }
+    .time-line .line-right:after {
+        right: auto;
+        left: 0;
+    }
+    [dir='rtl'] .time-line .line-left:after ,
+    [dir='rtl'] .time-line .line-right:after ,
+    [dir='rtl'] .time-line:after {
+        left: auto;
+        right: 0;
+    }
+    .time-line-end {
+        text-align: left !important;
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    [dir='rtl'] .time-line-end {
+        text-align: right !important;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .time-line-end {
+        display: none;
+    }
+}

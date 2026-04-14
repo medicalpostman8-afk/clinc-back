@@ -1,0 +1,63 @@
+.accordion-content.hide {
+    display: none;
+}
+.accordion-wrapper .accordion-btn .dlab-title a:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-image: var(--gradient);
+    background-size: 200%;
+    transition: all 1s;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.accordion-wrapper .accordion-btn.active .dlab-title a:after {
+    opacity: 1;
+}
+.accordion-wrapper .accordion-btn .dlab-title a {
+    color: inherit;
+}
+.accordion-wrapper .accordion-btn.active .dlab-title a {
+    color: #fff;
+}
+.accordion-wrapper .accordion-btn .dlab-title a .toggle-close:before {
+    content: "\e61a";
+    font-size: 24px;
+    font-family: 'themify';
+    z-index: 99;
+    transition: all 0.5s;
+    line-height: 55px;
+    display: block;
+    opacity: 1;
+    transform: rotate(0);
+    color: #fff;
+}
+.accordion-wrapper .accordion-btn .dlab-title a .toggle-close:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-image: var(--gradient);
+    background-size: 200%;
+    transition: all 1s;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 1;
+}
+.accordion-wrapper .accordion-btn.active .toggle-close:after {
+    opacity: 0 !important;
+}
+.accordion-wrapper .accordion-btn.active .toggle-close:before {
+    color: var(--primary) !important;
+    opacity: 1 !important;
+    transform: rotate(45deg) !important;
+}
+[dir='rtl'] .accordion-wrapper .accordion-btn .dlab-title a .toggle-close:after ,
+[dir='rtl'] .accordion-wrapper .accordion-btn .dlab-title a:after {
+    right: 0;
+    left: auto;
+}

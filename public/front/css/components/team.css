@@ -1,0 +1,83 @@
+/* FLIP Box */
+.flip-bx {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.flip-bx .front, .flip-bx .back {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backface-visibility: hidden;
+    text-align: center;
+    height: 100%;
+    border-radius: 4px;
+    color: #fff;
+}
+.flip-bx .back {
+    background: var(--gradient);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    position: absolute;
+    background-size: 200%;
+}
+.flip-bx .back .inner {
+    transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+}
+.flip-bx .back .inner p {
+    font-size: 16px;
+    color: #fff;
+}
+.flip-bx .back .inner .site-button-link {
+    font-size: 16px;
+}
+.flip-bx .front {
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+.flip-bx .front:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: 0.4;
+    backface-visibility: hidden;
+    border-radius: 4px;
+}
+.flip-bx .inner {
+    transform: translateZ(60px) scale(0.94);
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+    perspective: inherit;
+    z-index: 2;
+}
+.flip-bx:hover .front, .flip-bx:hover .back {
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip-bx:hover .back {
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+.flip-bx:hover .front {
+    transform: rotateY(-180deg);
+    transform-style: preserve-3d;
+}
+[dir='rtl'] .flip-bx .back ,
+[dir='rtl'] .flip-bx .front:after ,
+[dir='rtl'] .flip-bx .inner {
+    right: 0;
+    left: auto;
+}

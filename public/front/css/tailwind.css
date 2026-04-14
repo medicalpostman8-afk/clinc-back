@@ -1,0 +1,46 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* VARIABLES */
+@import "./abstracts/variables.css";
+@import "./skin/skin.css";
+
+/* RLT CSS */
+@import "./theme/rtl/rtl.css";
+@import "./theme/setting.css";
+
+/* BASE CSS */
+@import "./base/global.css";
+@import "./base/grid.css";
+
+/* LAYOUT CSS */
+@import "./layout/header/header.css";
+@import "./layout/navbar/navbar.css";
+@import "./layout/footer/footer.css";
+
+/* COMPONENT CSS */
+@import "./components/animation-keyframes.css";
+@import "./components/list-group.css";
+@import "./components/icon-box.css";
+@import "./components/overlay.css";
+@import "./components/pricetable.css";
+@import "./components/filter.css";
+@import "./components/owl-btn.css";
+@import "./components/testimonial.css";
+@import "./components/niceselect.css";
+@import "./components/main-banner.css";
+@import "./components/team.css";
+@import "./components/lightgallery.css";
+@import "./components/contentbox.css";
+@import "./components/imageeffect.css";
+@import "./components/vidiobox.css";
+@import "./components/widget.css";
+@import "./components/slick.css";
+
+/* PAGES CSS */
+@import "./pages/index.css";
+@import "./pages/faq.css";
+@import "./pages/team-detail.css";
+@import "./pages/blog.css";
+@import "./pages/companyhistory.css";

@@ -1,0 +1,131 @@
+
+body {
+    color: #636363;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+img {
+    display: inline-block;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #070120;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+}
+h1 {
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+h2 {
+    font-size: 60px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.5625rem;
+    line-height: 1.2;
+}
+h5 {
+    font-size: 1.25rem;
+}
+p {
+    margin-bottom: 1rem;
+}
+@media only screen and (max-width: 1199px) {
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.25rem;
+    }
+}
+@media only screen and (max-width: 991px) {
+    h1 {
+        font-size: 42px;
+    }
+    h2 {
+        font-size: 42px;
+    }
+}
+@screen max-sm  {
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+section {
+    position: relative;
+    z-index: 1;
+}
+#pointer-ring {
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: fixed;
+    border-radius: 100px;
+    z-index: 999999;
+    pointer-events: none;
+    transition: width 0.3s, height 0.3s;
+    background-color: var(--primary);
+    opacity: 0.1;
+}
+#pointer-dot {
+    left: -6px;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    position: fixed;
+    border-radius: 10px;
+    z-index: 999998;
+    pointer-events: none;
+    transition: border-color 0.5s;
+    background: var(--primary);
+}
+.loading-inner .dot {
+    animation: dzPreLoaderCircle1 2.5s 0s infinite both;
+}
+.loading-inner .dot2 {
+    animation: dzPreLoaderCircle2 2.5s 0s infinite both;
+}
+.loading-04,
+.loading-05 {
+    display: flex;
+}
+.loading-05 .dots {
+    filter: url(#gooeyness);
+}
+.loading-05 .dot:first-child {
+    animation: FirstDot 3s infinite;
+}
+.loading-05 .dot:nth-child(2) {
+    animation: SecondDot 3s infinite;
+}
+.loading-05 .dot:nth-child(3) {
+    animation: ThirdDot 3s infinite;
+}
+.loading-05 .dot:nth-child(4) {
+    animation: FourthDot 3s infinite;
+}
+.loading-05 .dot:nth-child(5) {
+    animation: FifthDot 3s infinite;
+}

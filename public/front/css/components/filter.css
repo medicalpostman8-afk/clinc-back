@@ -1,0 +1,5 @@
+.site-filters.style-1 .filters li.active a {
+    background-color: var(--primary);
+    box-shadow: 0 2px 15px var(--rgba-primary-5);
+    color: #fff;
+}

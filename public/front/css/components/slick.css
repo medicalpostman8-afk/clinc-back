@@ -1,0 +1,26 @@
+.testimonial-thumbs > .slick-list {
+    padding: 0 !important;
+}
+.slick-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.slick-slide img {
+    display: inline-block !important;
+}
+.slick-dots li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #b4b2b2;
+    margin: 0 6px;
+    border-radius: 100%
+}
+.slick-dots li.slick-active {
+    background-color: var(--primary) !important;
+}
+.slick-dots li button {
+    display: none;
+}

@@ -1,0 +1,19 @@
+.inner-body .bottom-content .player-stats li:not(:last-child):after {
+    content: '';
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, #f01f75 0%, #f896be 44%, rgba(255, 255, 255, 0.3) 83%, rgba(255, 255, 255, 0.14) 92%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    right: 0;
+}
+[dir='rtl'] .inner-body .bottom-content .player-stats li:not(:last-child):after {
+    left: 0;
+    right: auto;
+}
+@screen max-sm {
+    .inner-body .bottom-content .player-stats li:not(:last-child):after {
+        display: none;
+    }
+}

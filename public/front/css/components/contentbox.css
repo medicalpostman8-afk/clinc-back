@@ -1,0 +1,13 @@
+@media only screen and (max-width: 991px) {
+    .call-to-action {
+        padding: 50px 30px !important;
+    }
+}
+@screen max-sm  {
+    .call-to-action {
+        padding: 30px 20px !important;
+    }
+    .call-to-action .title {
+        font-size: 24px !important;
+    }
+}

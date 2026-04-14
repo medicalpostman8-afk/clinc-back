@@ -1,0 +1,25 @@
+:root{
+	--primary: theme('colors.primary.DEFAULT');
+    --primary-hover: theme('colors.primary.hover');
+    --primary-dark: theme('colors.primary.dark');
+    --primary-light: theme('colors.primary.light');
+	
+    --rgb-primary: theme('colors.primary.rgba');
+    
+    --rgba-primary-05: rgba(theme('colors.primary.rgba'), 0.05);
+    --rgba-primary-1: rgba(theme('colors.primary.rgba'), 0.1);
+    --rgba-primary-2: rgba(theme('colors.primary.rgba'), 0.2);
+    --rgba-primary-3: rgba(theme('colors.primary.rgba'), 0.3);
+    --rgba-primary-4: rgba(theme('colors.primary.rgba'), 0.4);
+    --rgba-primary-5: rgba(theme('colors.primary.rgba'), 0.5);
+    --rgba-primary-6: rgba(theme('colors.primary.rgba'), 0.6);
+    --rgba-primary-7: rgba(theme('colors.primary.rgba'), 0.7);
+    --rgba-primary-8: rgba(theme('colors.primary.rgba'), 0.8);
+    --rgba-primary-9: rgba(theme('colors.primary.rgba'), 0.9);
+	
+	--gradient: linear-gradient(to right,theme('colors.primary.DEFAULT') 0,theme('colors.primary.gradient') 51%,theme('colors.primary.DEFAULT') 100%);
+	--gradientY: linear-gradient(to top,theme('colors.primary.DEFAULT') 0,theme('colors.primary.gradient') 100%,theme('colors.primary.DEFAULT') 100%);
+	--gradient-sec: linear-gradient(to right,#0e1b1f 0,#092933 51%,#0e1b1f 100%);
+    --quote: url(../images/quotes-1.svg);
+	
+}

@@ -1,0 +1,28 @@
+[dir='rtl'] .btn i {
+    transform: rotate(180deg) scale(1.2) !important;
+}
+
+[dir='rtl'] .banner-five .swiper .swiper-slide {
+    direction: rtl;
+}
+
+[dir='rtl'] .swiper ,
+[dir='rtl'] .slider-thumbs ,
+[dir='rtl'] .slider-main ,
+[dir='rtl'] .swiper-container ,
+[dir='rtl'] .owl-carousel {
+    direction: ltr;
+}
+[dir='rtl'] .owl-carousel .dlab-content ,
+[dir='rtl'] .owl-carousel .testimonial-5 ,
+[dir='rtl'] .owl-carousel .testimonial-2 ,
+[dir='rtl'] .owl-carousel .testimonial-1 ,
+[dir='rtl'] .owl-carousel .dlab-blog {
+    direction: rtl;
+}
+[dir='rtl'] .banner-four .banner-inner .dz-media > svg {
+    transform: rotateY(180deg);
+}
+[dir='rtl'] .banner-five .banner-inner::before {
+    background: linear-gradient(-280deg, rgba(0, 0, 0, 0) 5%, var(--primary) 82%);
+}

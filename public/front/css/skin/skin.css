@@ -1,0 +1,182 @@
+
+.gradienthover:hover,
+.gradient{
+	background-image:var(--gradient);
+}
+.gradient:hover {
+    background-position: right center;
+}
+.gradientsec {
+    background-image: var(--gradient-sec);
+}
+
+/* SKIN - 1 */
+.skin-1{
+    --primary: theme('colors.colorTheme1.primary.default');
+    --primary-hover: theme('colors.colorTheme1.primary.hover');
+    --primary-dark: theme('colors.colorTheme1.primary.dark');
+    --primary-light: theme('colors.colorTheme1.primary.light');
+    --rgb-primary: theme('colors.colorTheme1.primary.rgba');
+	
+	--secondary: theme('colors.colorTheme1.secondary.default');
+	
+    --rgba-primary-05: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.05);
+    --rgba-primary-1: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.1);
+    --rgba-primary-2: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.2);
+    --rgba-primary-3: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.3);
+    --rgba-primary-4: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.4);
+    --rgba-primary-5: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.5);
+    --rgba-primary-6: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.6);
+    --rgba-primary-7: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.7);
+    --rgba-primary-8: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.8);
+    --rgba-primary-9: rgb(theme('colors.colorTheme1.primary.rgba')/ 0.9);
+	
+    --gradient: linear-gradient(to right, theme('colors.colorTheme1.primary.default') 0,theme('colors.colorTheme1.primary.hover') 51%, theme('colors.colorTheme1.primary.default') 100%);
+	--gradient-sec: linear-gradient(to right,#130065 0,#2b0ead 51%,#130065 100%);
+    --quote: url(../images/quotes-1.svg);
+}
+
+/* SKIN - 2 */
+.skin-2{
+    --primary: theme('colors.colorTheme2.primary.default');
+    --gradient: linear-gradient(to right,theme('colors.colorTheme2.primary.default') 0,theme('colors.colorTheme2.primary.gradient') 51%,theme('colors.colorTheme2.primary.default') 100%);
+	--gradientY: linear-gradient(to top,theme('colors.colorTheme2.primary.default') 0,theme('colors.colorTheme2.primary.gradient') 100%,theme('colors.colorTheme2.primary.default') 100%);
+	--gradient-sec: linear-gradient(to right,#0e1b1f 0,#092933 51%,#0e1b1f 100%);
+	--quote: url(../images/quotes-1.svg);
+    --primary-hover: theme('colors.colorTheme2.primary.hover');
+    --primary-dark: theme('colors.colorTheme2.primary.dark');
+    --primary-light: theme('colors.colorTheme2.primary.light');
+	
+    --rgb-primary: theme('colors.colorTheme2.primary.rgba');
+    
+    --rgba-primary-05: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.05);
+    --rgba-primary-1: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.1);
+    --rgba-primary-2: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.2);
+    --rgba-primary-3: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.3);
+    --rgba-primary-4: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.4);
+    --rgba-primary-5: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.5);
+    --rgba-primary-6: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.6);
+    --rgba-primary-7: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.7);
+    --rgba-primary-8: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.8);
+    --rgba-primary-9: rgb(theme('colors.colorTheme2.primary.rgba')/ 0.9);
+}
+
+
+/* SKIN - 3 */
+.skin-3 {
+    --primary: theme('colors.colorTheme3.primary.default');
+    --primary-hover: theme('colors.colorTheme3.primary.hover');
+    --primary-dark: theme('colors.colorTheme3.primary.dark');
+    --primary-light: theme('colors.colorTheme3.primary.light');
+	--rgb-primary: theme('colors.colorTheme3.primary.rgba');
+	
+	--secondary: theme('colors.colorTheme3.secondary.default');
+	
+    --rgba-primary-05: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.05);
+    --rgba-primary-1: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.1);
+    --rgba-primary-2: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.2);
+    --rgba-primary-3: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.3);
+    --rgba-primary-4: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.4);
+    --rgba-primary-5: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.5);
+    --rgba-primary-6: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.6);
+    --rgba-primary-7: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.7);
+    --rgba-primary-8: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.8);
+    --rgba-primary-9: rgb(theme('colors.colorTheme3.primary.rgba')/ 0.9);
+	
+    --gradient: linear-gradient(to right,theme('colors.colorTheme3.gradient.one') 0,theme('colors.colorTheme3.gradient.two') 51%, theme('colors.colorTheme3.gradient.one') 100%);
+	--gradient-sec: linear-gradient(to right,theme('colors.colorTheme3.gradient.three') 0,theme('colors.colorTheme3.gradient.four') 51%,theme('colors.colorTheme3.gradient.three') 100%);
+    --quote: url(../images/quotes-3.svg);
+}
+
+/* SKIN - 4 */
+.skin-4 {
+    --primary: theme('colors.colorTheme4.primary.default');
+    --primary-hover: theme('colors.colorTheme4.primary.hover');
+    --primary-dark: theme('colors.colorTheme4.primary.dark');
+    --primary-light: theme('colors.colorTheme4.primary.light');
+	--rgb-primary: theme('colors.colorTheme4.primary.rgba');
+    
+	--secondary: theme('colors.colorTheme4.secondary.default');
+	
+    --rgba-primary-05: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.05);
+    --rgba-primary-1: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.1);
+    --rgba-primary-2: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.2);
+    --rgba-primary-3: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.3);
+    --rgba-primary-4: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.4);
+    --rgba-primary-5: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.5);
+    --rgba-primary-6: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.6);
+    --rgba-primary-7: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.7);
+    --rgba-primary-8: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.8);
+    --rgba-primary-9: rgb(theme('colors.colorTheme4.primary.rgba')/ 0.9);
+	
+    --gradient: linear-gradient(to right, theme('colors.colorTheme4.primary.default') 0,theme('colors.colorTheme4.primary.hover') 51%, theme('colors.colorTheme4.primary.default') 100%);
+	--gradient-sec: linear-gradient(to right,#130065 0,#2b0ead 51%,#130065 100%);
+    --quote: url(../images/quotes-4.svg);
+}
+
+/* SKIN - 5 */
+.skin-5 {
+    --primary: theme('colors.colorTheme5.primary.default');
+    --primary-hover: theme('colors.colorTheme5.primary.hover');
+    --primary-dark: theme('colors.colorTheme5.primary.dark');
+    --primary-light: theme('colors.colorTheme5.primary.light');
+	--rgb-primary: theme('colors.colorTheme5.primary.rgba');
+    
+	--secondary: theme('colors.colorTheme5.secondary.default');
+	
+    --rgba-primary-05: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.05);
+    --rgba-primary-1: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.1);
+    --rgba-primary-2: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.2);
+    --rgba-primary-3: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.3);
+    --rgba-primary-4: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.4);
+    --rgba-primary-5: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.5);
+    --rgba-primary-6: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.6);
+    --rgba-primary-7: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.7);
+    --rgba-primary-8: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.8);
+    --rgba-primary-9: rgb(theme('colors.colorTheme5.primary.rgba')/ 0.9);
+	
+    --gradient: linear-gradient(to right, theme('colors.colorTheme5.primary.default') 0,theme('colors.colorTheme5.primary.hover') 51%, theme('colors.colorTheme5.primary.default') 100%);
+	--gradient-sec: linear-gradient(to right,#130065 0,#2b0ead 51%,#130065 100%);
+    --quote: url(../images/quotes-5.svg);
+}
+
+
+.skin-1 body{
+	color:#636363;	
+}
+.skin-1 .site-footer.style-2{
+    background-color:#1f2471;
+}
+.skin-1 .site-footer.style-2 .footer-bottom{
+    background:#141857;
+}
+.skin-2 h1, .skin-2 h2, .skin-2 h3, .skin-2 h4, .skin-2 h5, .skin-2 h6{
+	color:#262626;
+}
+.skin-2 .site-footer.style-2{
+	background-color:#0e1b1f;
+}
+.skin-2 .site-footer.style-2 .footer-bottom {
+    background-color: #1f343b;
+}
+.skin-3 body{
+	color:#5c6390;	
+}
+.skin-3 h1, .skin-3 h2, .skin-3 h3, .skin-3 h4, .skin-3 h5, .skin-3 h6{
+	color:#1f2471;
+}
+.skin-3 .site-footer.style-3 .footer-bottom{
+	background:#111942;
+}
+.skin-4 body{
+	color: #5e5e5e;	
+}
+.skin-4 h1, .skin-4 h2, .skin-4 h3, .skin-4 h4, .skin-4 h5, .skin-4 h6{
+	color: #141752;
+}
+.skin-5 body{
+	color: #5e5e5e;	
+}
+.skin-5 h1, .skin-5 h2, .skin-5 h3, .skin-5 h4, .skin-5 h5, .skin-5 h6{
+	color: #1d1f40;
+}

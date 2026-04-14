@@ -1,0 +1,149 @@
+.banner-three:after {
+    background-image: url(../images/main-slider/slider3/pic2.png);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 0;
+}
+[dir="rtl"] .banner-three:after {
+    background-image: url(../images/rtl/mainslider/pic2.png);
+}
+.banner-five .banner-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(280deg, rgba(0, 0, 0, 0) 5%, var(--primary) 82%);
+    z-index: -1;
+}
+.banner-five .swiper-pagination .swiper-pagination-bullet {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    height: auto;
+    opacity: 1;
+    width: auto;
+    border-radius: 0%;
+    background-color: transparent;
+    transition-duration: all 1s;
+}
+.banner-five .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    color:#fff;
+    transform: scale(1.2);
+}
+.dlab-bnr-inr.style-1:after {
+    content: "";
+    background-image: url(../images/banner/bnr4.png);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+[dir='rtl'] .dlab-bnr-inr.style-1:after {
+    background-image: url(../images/rtl/banner/bnr4.png);
+}
+[dir='rtl'] .banner-three:after ,
+[dir='rtl'] .banner-five .banner-inner::before ,
+[dir='rtl'] .dlab-bnr-inr.style-1:after {
+    right: 0;
+    left: auto;
+}
+@media only screen and (max-width: 767px) {
+    .banner-four .banner-inner {
+        padding-top: 150px !important;
+    }
+    .banner-four .banner-inner .dz-media > svg {
+        width: 600px !important;
+        margin-left: -60px !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media > svg {
+        margin: auto;
+    }
+    .banner-four .banner-inner .dz-media > img {
+        top: -47px !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(1) {
+        left: -60px !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(1) {
+        right: -60px !important;
+        left: auto !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(2) {
+        left: 25% !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(2) {
+        right: 25% !important;
+        left: auto !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(3) {
+        left: 44% !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(3) {
+        right: 44% !important;
+        left: auto !important;
+    }
+    .banner-five .banner-inner::before {
+        background-color: var(--primary);
+        opacity: 0.9;
+    }
+    
+}
+@screen max-sm  {
+    .banner-three:after {
+        background-position: -120px bottom;
+    }
+    .banner-four .banner-inner {
+        padding-top: 100px !important;
+    }
+    .banner-four .banner-inner .dz-media > svg {
+        margin: auto !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+    .banner-four .banner-inner .dz-media > img {
+        top: -25% !important;
+        min-width: 100px !important;
+        width: 100% !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(1) {
+        left: -20px !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(1) {
+        right: -20px !important;
+        left: auto !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(2) {
+        left: 45% !important;
+        top: 60% !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(2) {
+        right: 45% !important;
+        left: auto !important;
+    }
+    .banner-four .banner-inner .dz-media ul li:nth-child(3) {
+        left: 58% !important;
+    }
+    [dir='rtl'] .banner-four .banner-inner .dz-media ul li:nth-child(3) {
+        right: 58% !important;
+        left: auto !important;
+    }
+    .banner-five .swiper-pagination {
+        left: 15px !important;
+        bottom: 5px !important;
+    }
+    [dir='rtl'] .banner-five .swiper-pagination {
+        right: 15px !important;
+        left: auto !important;
+    }
+}
