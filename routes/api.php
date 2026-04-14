@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\ReservationController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,13 @@ Route::name('api.')->group(function () {
         Route::post('reservations/update/{reservation}', [ReservationController::class, 'update']);
 
         Route::post('reservations/{reservation}/status', [ReservationController::class, 'updateStatus']);
+        //Reservation Routes end
+
+        //Patienr Routes start
+        Route::apiResource('patients', PatientController::class)
+            ->only('index', 'show', 'store', 'destory');
+
+        Route::post('patients/update/{patient}', [PatientController::class, 'update']);
     });
 
     // Auth routes end
