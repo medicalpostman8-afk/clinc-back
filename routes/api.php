@@ -10,8 +10,10 @@ use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\ReservationController;
+use App\Http\Controllers\Api\VisitController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('api.')->group(function () {
@@ -73,11 +75,17 @@ Route::name('api.')->group(function () {
         Route::get('reservations/day', [ReservationController::class, 'dayReservations']);
         //Reservation Routes end
 
-        //Patienr Routes start
+        //Patient Routes start
         Route::apiResource('patients', PatientController::class)
             ->only('index', 'show', 'store', 'destory');
 
         Route::post('patients/update/{patient}', [PatientController::class, 'update']);
+
+        Route::post('visits', [VisitController::class, 'store']);
+
+        Route::get('patients/{patient}/visits', [VisitController::class, 'patientVisits']);
+
+        Route::get('medicines', [MedicineController::class, 'index']);
     });
 
     // Auth routes end
