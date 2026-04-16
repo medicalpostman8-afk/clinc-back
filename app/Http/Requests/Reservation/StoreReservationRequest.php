@@ -11,7 +11,9 @@ class StoreReservationRequest extends FormRequest
         return [
             'patient_id' => ['required', 'exists:patients,id'],
             'date' => ['required', 'date'],
-            'time' => ['required']
+            'time' => ['required'],
+            'notes' => ['nullable', 'string'],
+            'descriptions' => ['nullable', 'string'],
         ];
     }
 }

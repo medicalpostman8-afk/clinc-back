@@ -124,4 +124,28 @@ class ReservationController extends Controller
             'data' => new ReservationResource($reservation)
         ]);
     }
+
+    public function dayReservations(Request $request)
+    {
+        $request->validate([
+            'date' => 'required|date'
+        ]);
+
+        $doctor = auth()->user();
+
+        $reservations = Reservation::with('patient')
+            ->where('doctor_id', $doctor->id)
+            ->whereDate('date', $request->date)
+            ->orderBy('time')
+            ->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => [
+                'ar' => 'تم جلب مواعيد اليوم',
+                'en' => 'Day reservations fetched successfully'
+            ],
+            'data' => ReservationResource::collection($reservations)
+        ]);
+    }
 }

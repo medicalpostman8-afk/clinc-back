@@ -22,7 +22,9 @@ class ReservationResource extends JsonResource
                 'pending' => 'في الانتظار',
                 'completed' => 'المنتهية',
                 'cancelled' => 'ملغية',
-            }
+            },
+            'notes' => $this->notes,
+            'descriptions' => $this->descriptions
         ];
     }
 }

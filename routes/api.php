@@ -69,6 +69,8 @@ Route::name('api.')->group(function () {
         Route::post('reservations/update/{reservation}', [ReservationController::class, 'update']);
 
         Route::post('reservations/{reservation}/status', [ReservationController::class, 'updateStatus']);
+
+        Route::get('reservations/day', [ReservationController::class, 'dayReservations']);
         //Reservation Routes end
 
         //Patienr Routes start
