@@ -13,7 +13,9 @@ class Reservation extends Model
         'time',
         'status',
         'descriptions',
-        'notes'
+        'notes',
+        'type',
+        'price'
     ];
 
     public function patient()

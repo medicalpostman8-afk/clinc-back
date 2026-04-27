@@ -24,7 +24,9 @@ class ReservationResource extends JsonResource
                 'cancelled' => 'ملغية',
             },
             'notes' => $this->notes,
-            'descriptions' => $this->descriptions
+            'descriptions' => $this->descriptions,
+            'price' => $this->price,
+            'type' => $this->type
         ];
     }
 }

@@ -14,6 +14,8 @@ class StoreReservationRequest extends FormRequest
             'time' => ['required'],
             'notes' => ['nullable', 'string'],
             'descriptions' => ['nullable', 'string'],
+            'price' => ['nullable', 'numeric'],
+            'type' => ['required', 'in:consultation,follow_up,analysis'],
         ];
     }
 }

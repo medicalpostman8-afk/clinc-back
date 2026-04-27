@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->foreignId('doctor_id')->constrained('users')->cascadeOnDelete();
+            $table->enum('type', ['consultation', 'follow_up', 'analysis']);
+            $table->decimal('price', 7, 2);
             $table->date('date');
             $table->time('time');
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
