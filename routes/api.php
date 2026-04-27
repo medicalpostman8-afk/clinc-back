@@ -72,7 +72,7 @@ Route::name('api.')->group(function () {
 
         Route::post('reservations/{reservation}/status', [ReservationController::class, 'updateStatus']);
 
-        Route::get('reservations/day', [ReservationController::class, 'dayReservations']);
+        Route::get('reservations-day/day', [ReservationController::class, 'dayReservations']);
         //Reservation Routes end
 
         //Patient Routes start
