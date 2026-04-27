@@ -26,7 +26,8 @@ class ReservationResource extends JsonResource
             'notes' => $this->notes,
             'descriptions' => $this->descriptions,
             'price' => $this->price,
-            'type' => $this->type
+            'type' => $this->type,
+            'payment_status' => $this->price ? 'مدفوع' : 'غير مدفوع',
         ];
     }
 }
