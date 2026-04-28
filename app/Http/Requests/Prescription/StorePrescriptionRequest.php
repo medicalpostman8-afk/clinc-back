@@ -24,7 +24,7 @@ class StorePrescriptionRequest extends FormRequest
         return [
             'patient_id' => 'required|exists:patients,id',
             'medicine_name' => 'required|string',
-
+            'visit_id' => 'required|exists:visits,id',
             'dose' => 'nullable|string',
             'duration' => 'nullable|string',
             'frequency' => 'nullable|string',
