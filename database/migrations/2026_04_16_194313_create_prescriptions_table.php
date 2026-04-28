@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('visit_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('doctor_id')->constrained('users')->cascadeOnDelete();
             $table->string('medicine_name');
             $table->string('dose')->nullable();
             $table->string('duration')->nullable();
             $table->string('frequency')->nullable();
+            $table->string('description')->nullable();
             $table->text('notes')->nullable();
-
             $table->timestamps();
         });
     }

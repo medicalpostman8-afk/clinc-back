@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\PrescriptionController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\VisitController;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,19 @@ Route::name('api.')->group(function () {
         Route::get('patients/{patient}/visits', [VisitController::class, 'patientVisits']);
 
         Route::get('medicines', [MedicineController::class, 'index']);
+
+        //prescription routes start
+        Route::post('prescriptions', [PrescriptionController::class, 'store']);
+
+        Route::get(
+            'patients/{patient}/prescriptions',
+            [PrescriptionController::class, 'patientPrescriptions']
+        );
+
+        Route::delete(
+            'prescriptions/{prescription}',
+            [PrescriptionController::class, 'destroy']
+        );
     });
 
     // Auth routes end
