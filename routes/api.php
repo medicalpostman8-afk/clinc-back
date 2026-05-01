@@ -102,6 +102,13 @@ Route::name('api.')->group(function () {
         );
     });
 
+    // Banners requests routes start
+    Route::apiResource('/banners', BannerController::class)
+        ->only('index', 'store', 'destroy');
+
+    Route::post('edit-banner/{banner}', [BannerController::class, 'upadte']);
+    // Banners requests routes end
+
     // Auth routes end
 
     // General routes start
@@ -113,10 +120,7 @@ Route::name('api.')->group(function () {
     });
     // General routes end
 
-    // Banners requests routes start
-    Route::apiResource('/banners', BannerController::class)
-        ->only('index');
-    // Banners requests routes end
+
 
     // Contact requests routes start
     Route::apiResource('/contact-requests', ContactController::class)

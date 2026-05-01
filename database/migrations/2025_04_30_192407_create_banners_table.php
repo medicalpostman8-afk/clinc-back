@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('doctor_id')->constrained('users')->cascadeOnDelete();
             $table->json('name');
             $table->string('url')->nullable();
             $table->integer('status');

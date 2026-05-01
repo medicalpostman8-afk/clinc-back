@@ -30,7 +30,8 @@ class Banner extends Model implements HasMedia
     protected $fillable = [
         'name',
         'url',
-        'status'
+        'status',
+        'doctor_id'
     ];
 
     public array $translatable = [
@@ -58,5 +59,10 @@ class Banner extends Model implements HasMedia
         return $this->getMedia('image')
             ->first()
             ?->getUrl($conversionName);
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(User::class, 'doctor_id');
     }
 }
