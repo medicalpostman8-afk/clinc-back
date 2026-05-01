@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\PrescriptionController;
@@ -100,14 +101,21 @@ Route::name('api.')->group(function () {
             'prescriptions/{prescription}',
             [PrescriptionController::class, 'destroy']
         );
+
+        // Banners requests routes start
+        Route::apiResource('/banners', BannerController::class)
+            ->only('index', 'store', 'destroy');
+
+        Route::post('edit-banner/{banner}', [BannerController::class, 'upadte']);
+        // Banners requests routes end
+
+        //Blogs Routes start
+        Route::apiResource('blogs', BlogController::class)
+            ->only('index', 'store', 'destroy');
+
+        Route::post('edit-blog/{blog}', [BlogController::class, 'update']);
+        //Blogs Routes End
     });
-
-    // Banners requests routes start
-    Route::apiResource('/banners', BannerController::class)
-        ->only('index', 'store', 'destroy');
-
-    Route::post('edit-banner/{banner}', [BannerController::class, 'upadte']);
-    // Banners requests routes end
 
     // Auth routes end
 
