@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\AvailabilityController;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
@@ -115,6 +116,13 @@ Route::name('api.')->group(function () {
 
         Route::post('edit-blog/{blog}', [BlogController::class, 'update']);
         //Blogs Routes End
+
+        //Avalibilty Routes Strat
+        Route::get('/availabilities', [AvailabilityController::class, 'index']);
+
+        Route::post('/availabilities', [AvailabilityController::class, 'store']);
+
+        Route::delete('/availabilities/{id}', [AvailabilityController::class, 'destroy']);
     });
 
     // Auth routes end
