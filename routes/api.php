@@ -70,7 +70,7 @@ Route::name('api.')->group(function () {
 
         //Reservation Routes start
         Route::apiResource('reservations', ReservationController::class)
-            ->only('index', 'show', 'store', 'destory');
+            ->only('index', 'show', 'store', 'destroy');
 
         Route::post('reservations/update/{reservation}', [ReservationController::class, 'update']);
 
@@ -81,7 +81,7 @@ Route::name('api.')->group(function () {
 
         //Patient Routes start
         Route::apiResource('patients', PatientController::class)
-            ->only('index', 'show', 'store', 'destory');
+            ->only('index', 'show', 'store', 'destroy');
 
         Route::post('patients/update/{patient}', [PatientController::class, 'update']);
 
