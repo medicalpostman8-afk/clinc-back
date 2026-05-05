@@ -29,7 +29,7 @@ class BannerController extends ApiController
         ]);
 
         if ($request->hasFile('image')) {
-            $banner->addMediaFromRequest('image')->toMediaCollection('banners');
+            $banner->addMediaFromRequest('image')->toMediaCollection('image');
         }
 
         return response()->json([
