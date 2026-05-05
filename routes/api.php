@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\Auth\ProfileController;
 use App\Http\Controllers\Api\AvailabilityController;
 use App\Http\Controllers\Api\BlogController;
+use App\Http\Controllers\Api\InvoiceController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\PrescriptionController;
@@ -105,6 +106,13 @@ Route::name('api.')->group(function () {
             'prescriptions/{prescription}',
             [PrescriptionController::class, 'destroy']
         );
+        //prescription routes end
+
+        //Invoice routes start
+        Route::get('/invoices', [InvoiceController::class, 'index']);
+
+        Route::get('/invoices/{reservation}', [InvoiceController::class, 'show']);
+        //Invoice routes end
 
         // Banners requests routes start
         Route::apiResource('/banners', BannerController::class)
