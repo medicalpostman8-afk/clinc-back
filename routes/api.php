@@ -90,6 +90,9 @@ Route::name('api.')->group(function () {
 
         Route::get('medicines', [MedicineController::class, 'index']);
 
+        Route::get('/patients/{patient}/history', [PatientController::class, 'history']);
+        //patient end route
+
         //prescription routes start
         Route::post('prescriptions', [PrescriptionController::class, 'store']);
 

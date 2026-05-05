@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Patient\StorePatientRequest;
 use App\Http\Requests\Patient\UpdatePatientRequest;
+use App\Http\Resources\PatientHistoryResource;
 use App\Http\Resources\PatientResource;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -70,6 +71,20 @@ class PatientController extends Controller
                 'ar' => 'تم حذف المريض',
                 'en' => 'Patient deleted successfully'
             ]
+        ]);
+    }
+
+    public function history(Patient $patient)
+    {
+        $patient->load([
+            'reservations.doctor:id,name',
+            'visits.doctor:id,name',
+            'visits.prescriptions',
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'data' => new PatientHistoryResource($patient),
         ]);
     }
 }
