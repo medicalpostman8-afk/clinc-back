@@ -13,7 +13,7 @@ class BlogController extends ApiController
     {
         $doctor = auth()->user();
 
-        $blogs = Blog::whare('doctor_id', $doctor->id)
+        $blogs = Blog::where('doctor_id', $doctor->id)
             ->latest()
             ->with('media')
             ->paginate($this->paginationLimit, ['id', 'title', 'description']);

@@ -14,7 +14,7 @@ class ReservationResource extends JsonResource
             'date' => $this->date,
             'time' => $this->time,
             'status' => $this->status,
-
+            'patient_id' => $this->patient->id,
             'patient_name' => $this->patient->name,
             'patient_phone' => $this->patient->phone,
 

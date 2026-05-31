@@ -106,6 +106,8 @@ Route::name('api.')->group(function () {
             'prescriptions/{prescription}',
             [PrescriptionController::class, 'destroy']
         );
+
+        Route::get('prescriptions/search', [PrescriptionController::class, 'search']);
         //prescription routes end
 
         //Invoice routes start
@@ -116,9 +118,9 @@ Route::name('api.')->group(function () {
 
         // Banners requests routes start
         Route::apiResource('/banners', BannerController::class)
-            ->only('index', 'store', 'destroy');
+            ->only('index', 'store', 'destroy', 'show');
 
-        Route::post('edit-banner/{banner}', [BannerController::class, 'upadte']);
+        Route::post('edit-banner/{banner}', [BannerController::class, 'update']);
         // Banners requests routes end
 
         //Blogs Routes start

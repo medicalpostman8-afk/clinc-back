@@ -46,4 +46,28 @@ class PrescriptionController extends Controller
             'message' => 'تم الحذف'
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+
+        $prescriptions = Prescription::query()
+            ->where('doctor_id', auth()->id())
+            ->when($query, function ($q) use ($query) {
+                $q->where(function ($subQuery) use ($query) {
+                    $subQuery->where('medicine_name', 'like', "%{$query}%")
+                        ->orWhere('dose', 'like', "%{$query}%")
+                        ->orWhere('duration', 'like', "%{$query}%")
+                        ->orWhere('notes', 'like', "%{$query}%");
+                });
+            })
+            ->latest()
+            ->paginate(10);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'تم جلب الأدوية بنجاح',
+            'data' => $prescriptions,
+        ]);
+    }
 }

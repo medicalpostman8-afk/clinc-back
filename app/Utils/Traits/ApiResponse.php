@@ -18,7 +18,7 @@ trait ApiResponse
             'status'  => $status,
             'message' => $message,
             ...$data,
-        ], $code);
+        ], $code, [], JSON_UNESCAPED_UNICODE);
     }
 
     protected function successResponse($data = null, array $message = ['ar' => 'تم بنجاح', 'en' => 'Success']): JsonResponse
@@ -57,7 +57,7 @@ trait ApiResponse
             'status'  => false,
             'message' => $message,
             'errors'  => $errors
-        ], 422);
+        ], 422,  [], JSON_UNESCAPED_UNICODE);
     }
 
     protected function serverErrorResponse(array $message = ['ar' => 'خطأ في الخادم', 'en' => 'Server error']): JsonResponse

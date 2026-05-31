@@ -14,8 +14,10 @@ class StoreVisitRequest extends FormRequest
             'diagnosis' => 'nullable|string',
 
             'prescriptions' => 'nullable|array',
-            'prescriptions.*.medicine_name' => 'required|string',
-
+            'prescriptions.*.medicine_name' => 'required|string|required_with:prescriptions',
+            'prescriptions.*.dosage' => 'nullable|string|max:255',
+            'prescriptions.*.duration' => 'nullable|string|max:255',
+            'prescriptions.*.notes' => 'nullable|string',
             'analysis.*' => 'file|mimes:jpg,png,pdf|max:2048',
             'xray.*' => 'file|mimes:jpg,png,pdf|max:2048',
         ];
