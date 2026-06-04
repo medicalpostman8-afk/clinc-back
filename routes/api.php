@@ -18,6 +18,10 @@ use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\PrescriptionController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\VisitController;
+use App\Http\Controllers\Api\MedicalResultController;
+use App\Http\Controllers\Api\EmergencyRequestController;
+use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('api.')->group(function () {
@@ -67,6 +71,29 @@ Route::name('api.')->group(function () {
             });
         });
         // Profile routes start
+
+        // patient routes
+        Route::get('home', [HomeController::class, 'index']);
+
+        Route::get('profile', [ProfileController::class, 'show']);
+        Route::post('profile/update', [ProfileController::class, 'update']);
+
+        Route::apiResource('reservations', ReservationController::class)->only(['index', 'store', 'show']);
+        Route::post('reservations/{reservation}/cancel', [ReservationController::class, 'cancel']);
+
+        Route::apiResource('visits', VisitController::class)->only(['index', 'show']);
+
+        Route::apiResource('prescriptions', PrescriptionController::class)->only(['index', 'store', 'show']);
+
+        Route::apiResource('medical-results', MedicalResultController::class)->only(['index', 'store', 'show']);
+        Route::post('medical-results/{medicalResult}/files', [MedicalResultController::class, 'uploadFiles']);
+        Route::delete('medical-results/files/{media}', [MedicalResultController::class, 'deleteFile']);
+
+        Route::apiResource('emergency-requests', EmergencyRequestController::class)->only(['index', 'store', 'show']);
+        Route::post('emergency-requests/{emergencyRequest}/cancel', [EmergencyRequestController::class, 'cancel']);
+
+        Route::apiResource('invoices', InvoiceController::class)->only(['index', 'show']);
+        //end patient routes
 
         //Reservation Routes start
         Route::apiResource('reservations', ReservationController::class)
@@ -149,6 +176,12 @@ Route::name('api.')->group(function () {
     });
     // General routes end
 
+
+    Route::get('settings', [SettingController::class, 'index']);
+    Route::get('blogs', [BlogController::class, 'index']);
+    Route::get('blogs/{blog}', [BlogController::class, 'show']);
+    Route::get('medicines', [MedicineController::class, 'index']);
+    Route::get('medicines/{medicine}', [MedicineController::class, 'show']);
 
 
     // Contact requests routes start

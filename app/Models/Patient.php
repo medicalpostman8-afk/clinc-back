@@ -8,7 +8,17 @@ class Patient extends Model
 {
     protected $fillable = [
         'name',
-        'phone'
+        'phone',
+        'user_id',
+        'gender',
+        'birth_date',
+        'weight',
+        'height',
+        'chronic_diseases',
+    ];
+
+    protected $casts = [
+        'birth_date' => 'date',
     ];
 
     public function reservations()
@@ -24,5 +34,10 @@ class Patient extends Model
     public function prescriptions()
     {
         return $this->hasMany(Prescription::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
