@@ -25,6 +25,7 @@ class UserResource extends JsonResource
             'longitude' => $this->longitude,
             'push_notifications_token' => $this->push_notifications_token,
             'account_type' => $this->type,
+            'patient' => new PatientResource($this->whenLoaded('patient')),
         ];
     }
 }

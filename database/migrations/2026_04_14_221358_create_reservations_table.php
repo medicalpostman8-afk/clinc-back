@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreignId('doctor_id')->constrained('users')->cascadeOnDelete();
             $table->enum('type', ['consultation', 'follow_up', 'analysis']);
             $table->decimal('price', 7, 2)->nullable();
+            $table->timestamp('paid_at')->nullable()->after('transaction_id');
+            $table->string('transaction_id')->nullable()->after('payment_method');
+            $table->string('payment_method')->nullable()->after('payment_status');
+            $table->string('payment_status')->default('unpaid')->after('price');
             $table->date('date');
             $table->time('time');
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');

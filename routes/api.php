@@ -21,7 +21,12 @@ use App\Http\Controllers\Api\VisitController;
 use App\Http\Controllers\Api\MedicalResultController;
 use App\Http\Controllers\Api\EmergencyRequestController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\Auth\ProfilePatientController;
+use App\Http\Controllers\Api\Auth\RegisteredPatientController;
+use App\Http\Controllers\Api\PatientReservationController;
+use App\Http\Controllers\Api\PatientBlogsController;
 use App\Http\Controllers\Api\SettingController;
+use App\Http\Controllers\Api\PatientPrescriptionController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('api.')->group(function () {
@@ -32,6 +37,9 @@ Route::name('api.')->group(function () {
 
         Route::post('/register', [RegisteredUserController::class, 'store'])
             ->name('register');
+
+        Route::post('/patien-register', [RegisteredPatientController::class, 'store'])
+            ->name('patien_register');
 
         Route::post('/login', [AuthenticatedSessionController::class, 'store'])
             ->name('login');
@@ -75,21 +83,34 @@ Route::name('api.')->group(function () {
         // patient routes
         Route::get('home', [HomeController::class, 'index']);
 
-        Route::get('profile', [ProfileController::class, 'show']);
-        Route::post('profile/update', [ProfileController::class, 'update']);
+        Route::get('profile', [ProfilePatientController::class, 'show']);
 
-        Route::apiResource('reservations', ReservationController::class)->only(['index', 'store', 'show']);
-        Route::post('reservations/{reservation}/cancel', [ReservationController::class, 'cancel']);
+        Route::post('profile/update', [ProfilePatientController::class, 'update']);
 
-        Route::apiResource('visits', VisitController::class)->only(['index', 'show']);
+        Route::apiResource('patient-reservations', PatientReservationController::class)
+            ->only(['index', 'store', 'show'])
+            ->parameters([
+                'patient-reservations' => 'reservation',
+            ]);
 
-        Route::apiResource('prescriptions', PrescriptionController::class)->only(['index', 'store', 'show']);
+        Route::post('patient-reservations/{reservation}/cancel', [PatientReservationController::class, 'cancel']);
 
-        Route::apiResource('medical-results', MedicalResultController::class)->only(['index', 'store', 'show']);
+        Route::apiResource('visits', VisitController::class)
+            ->only(['index', 'show']);
+
+        Route::apiResource('patient-prescriptions', PatientPrescriptionController::class)
+            ->only(['index', 'show', 'store']);
+
+        Route::apiResource('medical-results', MedicalResultController::class)
+            ->only(['index', 'store', 'show']);
+
         Route::post('medical-results/{medicalResult}/files', [MedicalResultController::class, 'uploadFiles']);
+
         Route::delete('medical-results/files/{media}', [MedicalResultController::class, 'deleteFile']);
 
-        Route::apiResource('emergency-requests', EmergencyRequestController::class)->only(['index', 'store', 'show']);
+        Route::apiResource('emergency-requests', EmergencyRequestController::class)
+            ->only(['index', 'store', 'show']);
+
         Route::post('emergency-requests/{emergencyRequest}/cancel', [EmergencyRequestController::class, 'cancel']);
 
         Route::apiResource('invoices', InvoiceController::class)->only(['index', 'show']);
@@ -119,6 +140,9 @@ Route::name('api.')->group(function () {
         Route::get('medicines', [MedicineController::class, 'index']);
 
         Route::get('/patients/{patient}/history', [PatientController::class, 'history']);
+
+
+        Route::post('patient-reservations/{reservation}/pay', [PatientReservationController::class, 'pay']);
         //patient end route
 
         //prescription routes start
@@ -178,8 +202,8 @@ Route::name('api.')->group(function () {
 
 
     Route::get('settings', [SettingController::class, 'index']);
-    Route::get('blogs', [BlogController::class, 'index']);
-    Route::get('blogs/{blog}', [BlogController::class, 'show']);
+    Route::get('patient-blogs', [PatientBlogsController::class, 'index']);
+    Route::get('patient-blogs/{blog}', [PatientBlogsController::class, 'show']);
     Route::get('medicines', [MedicineController::class, 'index']);
     Route::get('medicines/{medicine}', [MedicineController::class, 'show']);
 

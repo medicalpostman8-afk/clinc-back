@@ -121,4 +121,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Reservation::class, 'doctor_id');
     }
+
+    public function patient()
+    {
+        return $this->hasOne(Patient::class);
+    }
 }
