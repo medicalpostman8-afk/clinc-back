@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\EmergencyRequestController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\Auth\ProfilePatientController;
 use App\Http\Controllers\Api\Auth\RegisteredPatientController;
+use App\Http\Controllers\Api\BookingInfoController;
 use App\Http\Controllers\Api\PatientReservationController;
 use App\Http\Controllers\Api\PatientBlogsController;
 use App\Http\Controllers\Api\SettingController;
@@ -125,6 +126,10 @@ Route::name('api.')->group(function () {
         Route::post('reservations/{reservation}/status', [ReservationController::class, 'updateStatus']);
 
         Route::get('reservations-day/day', [ReservationController::class, 'dayReservations']);
+
+        Route::apiResource('booking-infos', BookingInfoController::class);
+
+        Route::post('booking-infos-update/{bookingInfo}', [BookingInfoController::class, 'update']);
         //Reservation Routes end
 
         //Patient Routes start
