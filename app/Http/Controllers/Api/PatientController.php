@@ -14,9 +14,10 @@ class PatientController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Patient::query();
+        $query = Patient::query()
+            ->where('user_id', auth()->id());
 
-        if ($request->search) {
+        if ($request->filled('search')) {
             $query->where(function ($q) use ($request) {
                 $q->where('name', 'like', "%{$request->search}%")
                     ->orWhere('phone', 'like', "%{$request->search}%");
@@ -30,52 +31,96 @@ class PatientController extends Controller
 
     public function store(StorePatientRequest $request)
     {
-        $patient = Patient::create($request->validated());
+        $data = $request->validated();
+
+        $data['user_id'] = auth()->id();
+
+        $patient = Patient::create($data);
 
         return response()->json([
             'status' => true,
             'message' => [
                 'ar' => 'تم إضافة المريض',
-                'en' => 'Patient created successfully'
+                'en' => 'Patient created successfully',
             ],
-            'data' => new PatientResource($patient)
+            'data' => new PatientResource($patient),
         ]);
     }
 
     public function show(Patient $patient)
     {
+        if ($patient->user_id !== auth()->id()) {
+            return response()->json([
+                'status' => false,
+                'message' => [
+                    'ar' => 'غير مصرح لك بعرض هذا المريض',
+                    'en' => 'You are not authorized to view this patient',
+                ],
+            ], 403);
+        }
+
         return new PatientResource($patient);
     }
 
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
+        if ($patient->user_id !== auth()->id()) {
+            return response()->json([
+                'status' => false,
+                'message' => [
+                    'ar' => 'غير مصرح لك بتعديل هذا المريض',
+                    'en' => 'You are not authorized to update this patient',
+                ],
+            ], 403);
+        }
+
         $patient->update($request->validated());
 
         return response()->json([
             'status' => true,
             'message' => [
                 'ar' => 'تم تحديث بيانات المريض',
-                'en' => 'Patient updated successfully'
+                'en' => 'Patient updated successfully',
             ],
-            'data' => new PatientResource($patient)
+            'data' => new PatientResource($patient),
         ]);
     }
 
     public function destroy(Patient $patient)
     {
+        if ($patient->user_id !== auth()->id()) {
+            return response()->json([
+                'status' => false,
+                'message' => [
+                    'ar' => 'غير مصرح لك بحذف هذا المريض',
+                    'en' => 'You are not authorized to delete this patient',
+                ],
+            ], 403);
+        }
+
         $patient->delete();
 
         return response()->json([
             'status' => true,
             'message' => [
                 'ar' => 'تم حذف المريض',
-                'en' => 'Patient deleted successfully'
-            ]
+                'en' => 'Patient deleted successfully',
+            ],
         ]);
     }
 
     public function history(Patient $patient)
     {
+        if ($patient->user_id !== auth()->id()) {
+            return response()->json([
+                'status' => false,
+                'message' => [
+                    'ar' => 'غير مصرح لك بعرض سجل هذا المريض',
+                    'en' => 'You are not authorized to view this patient history',
+                ],
+            ], 403);
+        }
+
         $patient->load([
             'reservations.doctor:id,name',
             'visits.doctor:id,name',

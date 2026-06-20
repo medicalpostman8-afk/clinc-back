@@ -9,6 +9,7 @@ class StoreReservationRequest extends FormRequest
     public function rules()
     {
         return [
+            'doctor_id' => ['required', 'exists:users,id'],
             'patient_id' => ['required', 'exists:patients,id'],
             'date' => ['required', 'date'],
             'time' => ['required'],

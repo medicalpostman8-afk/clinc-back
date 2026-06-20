@@ -16,24 +16,116 @@ class ReservationController extends Controller
         return auth()->user();
     }
 
+    private function applyStatusFilter($query, $status)
+    {
+        if (!$status) {
+            return $query;
+        }
+
+        $statuses = is_array($status)
+            ? $status
+            : explode(',', $status);
+
+        $statuses = array_filter(array_map('trim', $statuses));
+
+        if (count($statuses) > 1) {
+            $query->whereIn('status', $statuses);
+        } elseif (count($statuses) === 1) {
+            $query->where('status', $statuses[0]);
+        }
+
+        return $query;
+    }
+
+    private function applyDateFilter($query, Request $request)
+    {
+        if ($request->filled('date')) {
+            $query->whereDate('date', $request->date);
+            return $query;
+        }
+
+        if ($request->filled('date_from')) {
+            $query->whereDate('date', '>=', $request->date_from);
+        }
+
+        if ($request->filled('date_to')) {
+            $query->whereDate('date', '<=', $request->date_to);
+        }
+
+        return $query;
+    }
+
+
+    private function applyPatientSearchFilter($query, ?string $search)
+    {
+        if (!$search) {
+            return $query;
+        }
+
+        $search = trim($search);
+        $cleanPhoneSearch = preg_replace('/\s+/', '', $search);
+
+        $patientTable = (new Patient())->getTable();
+
+        $availableColumns = [];
+
+        foreach (['name', 'phone', 'mobile', 'phone_number'] as $column) {
+            if (Schema::hasColumn($patientTable, $column)) {
+                $availableColumns[] = $column;
+            }
+        }
+
+        if (empty($availableColumns)) {
+            return $query;
+        }
+
+        $query->whereHas('patient', function ($q) use ($availableColumns, $search, $cleanPhoneSearch) {
+            $q->where(function ($patientQuery) use ($availableColumns, $search, $cleanPhoneSearch) {
+                foreach ($availableColumns as $index => $column) {
+                    if ($index === 0) {
+                        $patientQuery->where($column, 'like', "%{$search}%");
+                    } else {
+                        $patientQuery->orWhere($column, 'like', "%{$search}%");
+                    }
+
+                    if (in_array($column, ['phone', 'mobile', 'phone_number'])) {
+                        $patientQuery->orWhereRaw(
+                            "REPLACE({$column}, ' ', '') LIKE ?",
+                            ["%{$cleanPhoneSearch}%"]
+                        );
+                    }
+                }
+            });
+        });
+
+        return $query;
+    }
+
+
     public function index(Request $request)
     {
+        $request->validate([
+            'status' => 'nullable',
+            'date' => 'nullable|date',
+            'date_from' => 'nullable|date',
+            'date_to' => 'nullable|date|after_or_equal:date_from',
+            'search' => 'nullable|string|max:255',
+            'per_page' => 'nullable|integer|min:1|max:100',
+        ]);
+
         $query = Reservation::with('patient')
             ->where('doctor_id', $this->doctor()->id);
 
-        if ($request->status) {
-            $query->where('status', $request->status);
-        }
+        $this->applyStatusFilter($query, $request->input('status'));
+        $this->applyDateFilter($query, $request);
+        $this->applyPatientSearchFilter($query, $request->input('search'));
 
-        if ($request->search) {
-            $query->whereHas('patient', function ($q) use ($request) {
-                $q->where('name', 'like', "%{$request->search}%");
-            });
-        }
+        $reservations = $query
+            ->orderByDesc('date')
+            ->orderBy('time')
+            ->paginate($request->input('per_page', 10));
 
-        return ReservationResource::collection(
-            $query->latest()->paginate(10)
-        );
+        return ReservationResource::collection($reservations);
     }
 
     public function store(StoreReservationRequest $request)
@@ -57,7 +149,7 @@ class ReservationController extends Controller
 
         $reservation = Reservation::create([
             ...$request->validated(),
-            'doctor_id' => $doctor->id,
+            // 'doctor_id' => $doctor->id,
             'status' => 'pending'
         ]);
 
